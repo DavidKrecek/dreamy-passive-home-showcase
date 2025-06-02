@@ -23,11 +23,11 @@ const ContactSection = () => {
               </div>
               <div className="flex items-center space-x-4">
                 <Mail className="h-6 w-6" />
-                <span className="text-lg">info@pasivnidum.cz</span>
+                <span className="text-lg">info@passivehome4sale.com</span>
               </div>
               <div className="flex items-center space-x-4">
                 <MapPin className="h-6 w-6" />
-                <span className="text-lg">Újezd u Tišn, Česká republika</span>
+                <span className="text-lg">Újezd u Tišnova, Česká republika</span>
               </div>
             </div>
           </div>
