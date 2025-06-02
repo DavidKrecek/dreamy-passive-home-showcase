@@ -8,9 +8,7 @@ const ContactSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="animate-slide-up">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Kontaktujte Nás
-            </h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Kontaktujte nás</h2>
             <p className="text-xl mb-8 opacity-90">
               Máte zájem o prohlídku tohoto výjimečného pasivního domu? 
               Kontaktujte nás a domluvme si schůzku.
