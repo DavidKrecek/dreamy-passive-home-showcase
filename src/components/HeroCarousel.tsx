@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const HeroCarousel = () => {
   const slides = [
@@ -105,6 +106,37 @@ const HeroCarousel = () => {
     return () => clearInterval(timer);
   }, [slides.length]);
 
+  useEffect(() => {
+    // Create and play background music
+    const audio = new Audio('/background-music.mp3');
+    audio.loop = true;
+    audio.volume = 0.1; // Low volume for background music
+    
+    const playMusic = () => {
+      audio.play().catch(console.error);
+    };
+
+    // Try to play immediately
+    playMusic();
+
+    // Also try to play on first user interaction
+    const handleUserInteraction = () => {
+      playMusic();
+      document.removeEventListener('click', handleUserInteraction);
+      document.removeEventListener('keydown', handleUserInteraction);
+    };
+
+    document.addEventListener('click', handleUserInteraction);
+    document.addEventListener('keydown', handleUserInteraction);
+
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+      document.removeEventListener('click', handleUserInteraction);
+      document.removeEventListener('keydown', handleUserInteraction);
+    };
+  }, []);
+
   const scrollToNext = () => {
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
@@ -148,11 +180,14 @@ const HeroCarousel = () => {
         </div>
       </div>
 
-      {/* Dynamic scroll down arrow */}
+      {/* Slower bounce arrow */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
         <button
           onClick={scrollToNext}
-          className="bg-white/20 hover:bg-white/30 border border-white/30 backdrop-blur-sm transition-all duration-300 hover:scale-110 rounded-full w-16 h-16 flex items-center justify-center animate-bounce"
+          className="bg-white/20 hover:bg-white/30 border border-white/30 backdrop-blur-sm transition-all duration-300 hover:scale-110 rounded-full w-16 h-16 flex items-center justify-center"
+          style={{
+            animation: 'bounce 2.3s infinite'
+          }}
         >
           <ChevronDown className="h-8 w-8 text-white" />
         </button>
