@@ -100,6 +100,32 @@ const Gallery = () => {
     }
   };
 
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (selectedImage === null) return;
+    
+    if (e.key === 'ArrowLeft') {
+      goToPrevious();
+    } else if (e.key === 'ArrowRight') {
+      goToNext();
+    } else if (e.key === 'Escape') {
+      closeLightbox();
+    }
+  };
+
+  React.useEffect(() => {
+    if (selectedImage !== null) {
+      document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedImage]);
+
   return (
     <section id="gallery" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -123,6 +149,7 @@ const Gallery = () => {
                 src={image.src}
                 alt={image.alt}
                 className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
                 <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -136,36 +163,41 @@ const Gallery = () => {
         </div>
       </div>
 
-      {/* Lightbox */}
+      {/* Fullscreen Lightbox */}
       {selectedImage !== null && (
-        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4">
-          <div className="relative max-w-4xl w-full h-full flex items-center justify-center">
-            <button
-              onClick={closeLightbox}
-              className="absolute top-4 right-4 z-10 text-white hover:text-gray-300 transition-colors"
-            >
-              <X className="w-8 h-8" />
-            </button>
-            
-            <button
-              onClick={goToPrevious}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 text-white hover:text-gray-300 transition-colors"
-            >
-              <ChevronLeft className="w-10 h-10" />
-            </button>
-            
-            <button
-              onClick={goToNext}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 text-white hover:text-gray-300 transition-colors"
-            >
-              <ChevronRight className="w-10 h-10" />
-            </button>
-            
-            <img
-              src={images[selectedImage].src}
-              alt={images[selectedImage].alt}
-              className="max-w-full max-h-full object-contain"
-            />
+        <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
+          <button
+            onClick={closeLightbox}
+            className="absolute top-6 right-6 z-10 text-white hover:text-gray-300 transition-colors p-2 rounded-full bg-black/20 backdrop-blur-sm"
+          >
+            <X className="w-8 h-8" />
+          </button>
+          
+          <button
+            onClick={goToPrevious}
+            className="absolute left-6 top-1/2 transform -translate-y-1/2 z-10 text-white hover:text-gray-300 transition-colors p-2 rounded-full bg-black/20 backdrop-blur-sm"
+          >
+            <ChevronLeft className="w-10 h-10" />
+          </button>
+          
+          <button
+            onClick={goToNext}
+            className="absolute right-6 top-1/2 transform -translate-y-1/2 z-10 text-white hover:text-gray-300 transition-colors p-2 rounded-full bg-black/20 backdrop-blur-sm"
+          >
+            <ChevronRight className="w-10 h-10" />
+          </button>
+          
+          <img
+            src={images[selectedImage].src}
+            alt={images[selectedImage].alt}
+            className="max-w-[95vw] max-h-[95vh] object-contain"
+          />
+          
+          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white text-center">
+            <p className="text-lg font-medium">{images[selectedImage].alt}</p>
+            <p className="text-sm opacity-75 mt-1">
+              {selectedImage + 1} / {images.length}
+            </p>
           </div>
         </div>
       )}

@@ -56,7 +56,7 @@ const HeroCarousel = () => {
     },
     {
       image: '/lovable-uploads/98f7d7ff-d6d0-47d1-9bc6-f1783f162c4e.png',
-      title: 'Moderní kuchyně',
+      title: 'Moderní kuchyň',
       subtitle: 'Funkční prostory s přírodními materiály a LED osvětlením'
     },
     {
@@ -130,6 +130,7 @@ const HeroCarousel = () => {
               src={slide.image}
               alt={slide.title}
               className="w-full h-full object-cover"
+              loading={index < 3 ? "eager" : "lazy"}
             />
             <div className="absolute inset-0 bg-black/20"></div>
           </div>
