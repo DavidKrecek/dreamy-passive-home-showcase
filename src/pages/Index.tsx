@@ -3,6 +3,8 @@ import React from 'react';
 import HeroCarousel from '../components/HeroCarousel';
 import AboutSection from '../components/AboutSection';
 import FeaturesSection from '../components/FeaturesSection';
+import VideoSection from '../components/VideoSection';
+import PriceSection from '../components/PriceSection';
 import ContactSection from '../components/ContactSection';
 import Navigation from '../components/Navigation';
 
@@ -19,6 +21,8 @@ const Index = () => {
       <section id="features">
         <FeaturesSection />
       </section>
+      <VideoSection />
+      <PriceSection />
       <section id="contact">
         <ContactSection />
       </section>

@@ -7,52 +7,52 @@ const HeroCarousel = () => {
   const slides = [
     {
       image: '/lovable-uploads/34a7a2ae-be7f-44c8-8338-6ad840920a6e.png',
-      title: 'Moderní Pasivní Dům',
+      title: 'Moderní pasivní dům',
       subtitle: 'Energeticky efektivní bydlení v harmonii s přírodou'
     },
     {
       image: '/lovable-uploads/448f7b5c-bd78-4214-9f50-12701bae73b6.png',
-      title: 'Udržitelná Architektura',
+      title: 'Udržitelná architektura',
       subtitle: 'Přírodní materiály a inovativní design v dokonalé symbióze'
     },
     {
       image: '/lovable-uploads/568ff74c-c8c8-4094-afbb-7dd37012bdfd.png',
-      title: 'Energetická Nezávislost',
+      title: 'Energetická nezávislost',
       subtitle: 'Solární panely a tepelná čerpadla pro minimální náklady'
     },
     {
       image: '/lovable-uploads/0fe14ab5-4acf-4772-a0ed-fcb07d64259b.png',
-      title: 'Komfort a Zdraví',
+      title: 'Komfort a zdraví',
       subtitle: 'Čistý vzduch a optimální teplota po celý rok'
     },
     {
       image: '/lovable-uploads/9e404b0e-7d97-43eb-a9c5-c13ea4714002.png',
-      title: 'Smart Home Technologie',
+      title: 'Smart home technologie',
       subtitle: 'Inteligentní řízení domácnosti pro maximální pohodlí'
     },
     {
       image: '/lovable-uploads/3539edde-8070-43b2-8b1f-f43bc15fa201.png',
-      title: 'Přírodní Prostředí',
+      title: 'Přírodní prostředí',
       subtitle: 'Dokonalé začlenění do krajiny s ohledem na ekologii'
     },
     {
       image: '/lovable-uploads/b432b6aa-d779-4ac0-b6fa-af236fbf39fd.png',
-      title: 'Moderní Design',
+      title: 'Moderní design',
       subtitle: 'Čisté linie a funkční prostory pro současný životní styl'
     },
     {
       image: '/lovable-uploads/d4d36bfd-474c-42eb-acb0-ab23d719e890.png',
-      title: 'Tepelná Izolace',
+      title: 'Tepelná izolace',
       subtitle: 'Nejmodernější izolační materiály pro nulovou energetickou ztrátu'
     },
     {
       image: '/lovable-uploads/8bdb5481-b65c-4065-823f-04ca359d9bc7.png',
-      title: 'Kvalitní Bydlení',
+      title: 'Kvalitní bydlení',
       subtitle: 'Prostory navržené pro maximální využití a životní pohodu'
     },
     {
       image: '/lovable-uploads/16e92610-2f35-4f95-a1ab-5230710ef70d.png',
-      title: 'Budoucnost Bydlení',
+      title: 'Budoucnost bydlení',
       subtitle: 'Investice do udržitelné budoucnosti pro další generace'
     }
   ];
