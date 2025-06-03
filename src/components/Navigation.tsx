@@ -16,7 +16,7 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-md border-b border-gray-200/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-10">
+        <div className="flex justify-between items-center h-8.5">
           <div className="text-lg font-bold text-nature-green">
             Pasivní Dům
           </div>
@@ -43,9 +43,23 @@ const Navigation = () => {
               Vlastnosti
             </a>
             <a 
+              href="#video" 
+              onClick={(e) => handleNavClick(e, 'video')}
+              className="text-gray-700 hover:text-nature-green font-semibold transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-nature-green after:transition-all after:duration-300 hover:after:w-full"
+            >
+              Video
+            </a>
+            <a 
+              href="#gallery" 
+              onClick={(e) => handleNavClick(e, 'gallery')}
+              className="text-gray-700 hover:text-nature-green font-semibold transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-nature-green after:transition-all after:duration-300 hover:after:w-full"
+            >
+              Galerie
+            </a>
+            <a 
               href="#contact" 
               onClick={(e) => handleNavClick(e, 'contact')}
-              className="text-gray-700 hover:text-nature-green font-semibold transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-nature-green after:transition-all after:duration-300 hover:after:w-full"
+              className="text-gray-700 hover:text-nature-green font-semibold transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-nature-green after:transition-all duration-300 hover:after:w-full"
             >
               Kontakt
             </a>

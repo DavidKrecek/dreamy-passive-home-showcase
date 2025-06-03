@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 
 const HeroCarousel = () => {
   const slides = [
@@ -106,14 +105,14 @@ const HeroCarousel = () => {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? slides.length - 1 : prevIndex - 1
-    );
-  };
-
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+  const scrollToNext = () => {
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   };
 
   return (
@@ -137,21 +136,6 @@ const HeroCarousel = () => {
         ))}
       </div>
 
-      {/* Navigation arrows */}
-      <button
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 border border-white/30 backdrop-blur-sm transition-all duration-300 hover:scale-110 rounded-full w-12 h-12 flex items-center justify-center"
-        onClick={goToPrevious}
-      >
-        <ChevronLeft className="h-6 w-6 text-white" />
-      </button>
-
-      <button
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 border border-white/30 backdrop-blur-sm transition-all duration-300 hover:scale-110 rounded-full w-12 h-12 flex items-center justify-center"
-        onClick={goToNext}
-      >
-        <ChevronRight className="h-6 w-6 text-white" />
-      </button>
-
       {/* Content overlay */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
         <div className="text-center text-white px-4 max-w-4xl animate-fade-in">
@@ -162,6 +146,16 @@ const HeroCarousel = () => {
             {slides[currentIndex].subtitle}
           </p>
         </div>
+      </div>
+
+      {/* Dynamic scroll down arrow */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+        <button
+          onClick={scrollToNext}
+          className="bg-white/20 hover:bg-white/30 border border-white/30 backdrop-blur-sm transition-all duration-300 hover:scale-110 rounded-full w-16 h-16 flex items-center justify-center animate-bounce"
+        >
+          <ChevronDown className="h-8 w-8 text-white" />
+        </button>
       </div>
     </section>
   );
