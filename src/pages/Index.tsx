@@ -4,6 +4,7 @@ import HeroCarousel from '../components/HeroCarousel';
 import AboutSection from '../components/AboutSection';
 import FeaturesSection from '../components/FeaturesSection';
 import VideoSection from '../components/VideoSection';
+import Gallery from '../components/Gallery';
 import PriceSection from '../components/PriceSection';
 import ContactSection from '../components/ContactSection';
 import Navigation from '../components/Navigation';
@@ -22,6 +23,7 @@ const Index = () => {
         <FeaturesSection />
       </section>
       <VideoSection />
+      <Gallery />
       <PriceSection />
       <section id="contact">
         <ContactSection />

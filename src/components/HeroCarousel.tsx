@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const HeroCarousel = () => {
@@ -54,6 +53,46 @@ const HeroCarousel = () => {
       image: '/lovable-uploads/16e92610-2f35-4f95-a1ab-5230710ef70d.png',
       title: 'Budoucnost bydlení',
       subtitle: 'Investice do udržitelné budoucnosti pro další generace'
+    },
+    {
+      image: '/lovable-uploads/98f7d7ff-d6d0-47d1-9bc6-f1783f162c4e.png',
+      title: 'Moderní kuchyně',
+      subtitle: 'Funkční prostory s přírodními materiály a LED osvětlením'
+    },
+    {
+      image: '/lovable-uploads/114278df-7624-417c-a266-586e18155b5e.png',
+      title: 'Přírodní zahrada',
+      subtitle: 'Kamínková zahrada s rozmanitými rostlinami a bylinkami'
+    },
+    {
+      image: '/lovable-uploads/b2dd4ea1-2715-42e3-8663-0422effb0aa3.png',
+      title: 'Zahrada s výhledem',
+      subtitle: 'Krásný výhled na krajinu s pestrou vegetací'
+    },
+    {
+      image: '/lovable-uploads/3b514818-aac4-4270-be8f-45418b9c2190.png',
+      title: 'Vyvýšené záhony',
+      subtitle: 'Praktické řešení pro pěstování vlastní zeleniny'
+    },
+    {
+      image: '/lovable-uploads/a1a963c8-5683-4b15-bbbd-ac92c88692e2.png',
+      title: 'Květinová zahrada',
+      subtitle: 'Pestrá paleta barev s česnekově fialovými květy'
+    },
+    {
+      image: '/lovable-uploads/0ff67a38-a52e-4dc1-a5c6-cdd5af2bb8a3.png',
+      title: 'Terénní úpravy',
+      subtitle: 'Promyšlené uspořádání zahrady pro maximální využití'
+    },
+    {
+      image: '/lovable-uploads/06e31b09-424c-46b9-b29f-f4f6fb2325d9.png',
+      title: 'Domácí zahrada',
+      subtitle: 'Harmonické propojení architektury s přírodou'
+    },
+    {
+      image: '/lovable-uploads/842f3a53-9083-473a-8ee6-b208bc995c07.png',
+      title: 'Relaxační zóna',
+      subtitle: 'Dřevěná terasa s houpačkami a výhledem do zahrady'
     }
   ];
 
@@ -98,23 +137,19 @@ const HeroCarousel = () => {
       </div>
 
       {/* Navigation arrows */}
-      <Button
-        variant="outline"
-        size="icon"
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 border-white/30 backdrop-blur-sm transition-all duration-300 hover:scale-110"
+      <button
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 border border-white/30 backdrop-blur-sm transition-all duration-300 hover:scale-110 rounded-full w-12 h-12 flex items-center justify-center"
         onClick={goToPrevious}
       >
         <ChevronLeft className="h-6 w-6 text-white" />
-      </Button>
+      </button>
 
-      <Button
-        variant="outline"
-        size="icon"
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 border-white/30 backdrop-blur-sm transition-all duration-300 hover:scale-110"
+      <button
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 border border-white/30 backdrop-blur-sm transition-all duration-300 hover:scale-110 rounded-full w-12 h-12 flex items-center justify-center"
         onClick={goToNext}
       >
         <ChevronRight className="h-6 w-6 text-white" />
-      </Button>
+      </button>
 
       {/* Content overlay */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
@@ -125,12 +160,6 @@ const HeroCarousel = () => {
           <p className="text-xl md:text-2xl mb-8 font-light">
             {slides[currentIndex].subtitle}
           </p>
-          <Button 
-            size="lg" 
-            className="bg-nature-green hover:bg-nature-green/90 text-white px-8 py-3 text-lg"
-          >
-            Zjistit více
-          </Button>
         </div>
       </div>
     </section>
