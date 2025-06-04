@@ -10,16 +10,16 @@ const PriceSection = () => {
           <div className="inline-flex items-center justify-center mb-6">
             <Home className="h-12 w-12 mr-4" />
             <h2 className="text-4xl md:text-5xl font-bold">
-              Prodejní cena
+              Sale Price
             </h2>
           </div>
           
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto mb-8">
             <div className="text-6xl md:text-7xl font-bold mb-4">
-              24 900 000 Kč
+              €998,000
             </div>
             <p className="text-xl opacity-90">
-              Včetně kompletního vybavení a technologií
+              Including complete equipment and technologies
             </p>
           </div>
         </div>

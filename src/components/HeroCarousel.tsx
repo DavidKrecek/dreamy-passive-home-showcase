@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 
@@ -6,93 +5,93 @@ const HeroCarousel = () => {
   const slides = [
     {
       image: '/lovable-uploads/34a7a2ae-be7f-44c8-8338-6ad840920a6e.png',
-      title: 'Moderní pasivní dům',
-      subtitle: 'Energeticky efektivní bydlení v harmonii s přírodou'
+      title: 'Modern Passive House',
+      subtitle: 'Energy-efficient living in harmony with nature'
     },
     {
       image: '/lovable-uploads/448f7b5c-bd78-4214-9f50-12701bae73b6.png',
-      title: 'Udržitelná architektura',
-      subtitle: 'Přírodní materiály a inovativní design v dokonalé symbióze'
+      title: 'Sustainable Architecture',
+      subtitle: 'Natural materials and innovative design in perfect symbiosis'
     },
     {
       image: '/lovable-uploads/568ff74c-c8c8-4094-afbb-7dd37012bdfd.png',
-      title: 'Energetická nezávislost',
-      subtitle: 'Solární panely a tepelná čerpadla pro minimální náklady'
+      title: 'Energy Independence',
+      subtitle: 'Solar panels and heat pumps for minimal operating costs'
     },
     {
       image: '/lovable-uploads/0fe14ab5-4acf-4772-a0ed-fcb07d64259b.png',
-      title: 'Komfort a zdraví',
-      subtitle: 'Čistý vzduch a optimální teplota po celý rok'
+      title: 'Comfort and Health',
+      subtitle: 'Clean air and optimal temperature throughout the year'
     },
     {
       image: '/lovable-uploads/9e404b0e-7d97-43eb-a9c5-c13ea4714002.png',
-      title: 'Smart home technologie',
-      subtitle: 'Inteligentní řízení domácnosti pro maximální pohodlí'
+      title: 'Smart Home Technology',
+      subtitle: 'Intelligent home control for maximum convenience'
     },
     {
       image: '/lovable-uploads/3539edde-8070-43b2-8b1f-f43bc15fa201.png',
-      title: 'Přírodní prostředí',
-      subtitle: 'Dokonalé začlenění do krajiny s ohledem na ekologii'
+      title: 'Natural Environment',
+      subtitle: 'Perfect integration into the landscape with ecological considerations'
     },
     {
       image: '/lovable-uploads/b432b6aa-d779-4ac0-b6fa-af236fbf39fd.png',
-      title: 'Moderní design',
-      subtitle: 'Čisté linie a funkční prostory pro současný životní styl'
+      title: 'Modern Design',
+      subtitle: 'Clean lines and functional spaces for contemporary lifestyle'
     },
     {
       image: '/lovable-uploads/d4d36bfd-474c-42eb-acb0-ab23d719e890.png',
-      title: 'Tepelná izolace',
-      subtitle: 'Nejmodernější izolační materiály pro nulovou energetickou ztrátu'
+      title: 'Thermal Insulation',
+      subtitle: 'Latest insulation materials for zero energy loss'
     },
     {
       image: '/lovable-uploads/8bdb5481-b65c-4065-823f-04ca359d9bc7.png',
-      title: 'Kvalitní bydlení',
-      subtitle: 'Prostory navržené pro maximální využití a životní pohodu'
+      title: 'Quality Living',
+      subtitle: 'Spaces designed for maximum utilization and life comfort'
     },
     {
       image: '/lovable-uploads/16e92610-2f35-4f95-a1ab-5230710ef70d.png',
-      title: 'Budoucnost bydlení',
-      subtitle: 'Investice do udržitelné budoucnosti pro další generace'
+      title: 'Future of Living',
+      subtitle: 'Investment in sustainable future for next generations'
     },
     {
       image: '/lovable-uploads/98f7d7ff-d6d0-47d1-9bc6-f1783f162c4e.png',
-      title: 'Moderní kuchyň',
-      subtitle: 'Funkční prostory s přírodními materiály a LED osvětlením'
+      title: 'Modern Kitchen',
+      subtitle: 'Functional spaces with natural materials and LED lighting'
     },
     {
       image: '/lovable-uploads/114278df-7624-417c-a266-586e18155b5e.png',
-      title: 'Přírodní zahrada',
-      subtitle: 'Kamínková zahrada s rozmanitými rostlinami a bylinkami'
+      title: 'Natural Garden',
+      subtitle: 'Stone garden with diverse plants and herbs'
     },
     {
       image: '/lovable-uploads/b2dd4ea1-2715-42e3-8663-0422effb0aa3.png',
-      title: 'Zahrada s výhledem',
-      subtitle: 'Krásný výhled na krajinu s pestrou vegetací'
+      title: 'Garden with View',
+      subtitle: 'Beautiful landscape view with diverse vegetation'
     },
     {
       image: '/lovable-uploads/3b514818-aac4-4270-be8f-45418b9c2190.png',
-      title: 'Vyvýšené záhony',
-      subtitle: 'Praktické řešení pro pěstování vlastní zeleniny'
+      title: 'Raised Garden Beds',
+      subtitle: 'Practical solution for growing your own vegetables'
     },
     {
       image: '/lovable-uploads/a1a963c8-5683-4b15-bbbd-ac92c88692e2.png',
-      title: 'Květinová zahrada',
-      subtitle: 'Pestrá paleta barev s česnekově fialovými květy'
+      title: 'Flower Garden',
+      subtitle: 'Colorful palette with purple flowering plants'
     },
     {
       image: '/lovable-uploads/0ff67a38-a52e-4dc1-a5c6-cdd5af2bb8a3.png',
-      title: 'Terénní úpravy',
-      subtitle: 'Promyšlené uspořádání zahrady pro maximální využití'
+      title: 'Landscape Design',
+      subtitle: 'Thoughtful garden arrangement for maximum utilization'
     },
     {
       image: '/lovable-uploads/06e31b09-424c-46b9-b29f-f4f6fb2325d9.png',
-      title: 'Domácí zahrada',
-      subtitle: 'Harmonické propojení architektury s přírodou'
+      title: 'Home Garden',
+      subtitle: 'Harmonious connection of architecture with nature'
     },
     {
       image: '/lovable-uploads/842f3a53-9083-473a-8ee6-b208bc995c07.png',
-      title: 'Relaxační zóna',
-      subtitle: 'Dřevěná terasa s houpačkami a výhledem do zahrady'
+      title: 'Relaxation Zone',
+      subtitle: 'Wooden terrace with swings and garden views'
     }
   ];
 
