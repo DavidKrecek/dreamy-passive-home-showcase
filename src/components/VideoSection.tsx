@@ -16,7 +16,7 @@ const VideoSection = () => {
           <div className="relative aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-2xl">
             <iframe 
               className="w-full h-full" 
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+              src="https://www.youtube.com/embed/59ttT9tMRjc" 
               title="Passive house tour" 
               frameBorder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 

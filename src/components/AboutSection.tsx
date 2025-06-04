@@ -1,5 +1,6 @@
 
 import React from 'react';
+import AboutImageSlider from './AboutImageSlider';
 
 const AboutSection = () => {
   return (
@@ -25,11 +26,7 @@ const AboutSection = () => {
             </p>
           </div>
           <div className="animate-slide-up">
-            <img 
-              src="/lovable-uploads/3539edde-8070-43b2-8b1f-f43bc15fa201.png" 
-              alt="Passive house interior" 
-              className="w-full h-96 object-cover rounded-lg shadow-2xl" 
-            />
+            <AboutImageSlider />
           </div>
         </div>
       </div>

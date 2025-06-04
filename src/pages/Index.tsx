@@ -24,7 +24,9 @@ const Index = () => {
       </section>
       <VideoSection />
       <Gallery />
-      <PriceSection />
+      <section id="price">
+        <PriceSection />
+      </section>
       <section id="contact">
         <ContactSection />
       </section>
