@@ -287,7 +287,7 @@ const Gallery = () => {
         
         {/* Main Image Display */}
         <div className="mb-8 animate-slide-up">
-          <div className="relative aspect-video max-w-4xl mx-auto bg-gray-100 rounded-lg overflow-hidden group cursor-pointer">
+          <div className="relative aspect-[4/3] max-w-5xl mx-auto bg-gray-100 rounded-lg overflow-hidden group cursor-pointer">
             <img 
               src={images[selectedImage].src} 
               alt={images[selectedImage].alt} 

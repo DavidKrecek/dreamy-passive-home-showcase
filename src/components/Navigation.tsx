@@ -60,18 +60,24 @@ const Navigation = () => {
   }, []);
 
   const getLinkClassName = (sectionId: string) => {
-    const baseClasses = "text-gray-700 hover:text-nature-green font-semibold transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-nature-green after:transition-all after:duration-300";
-    const activeClasses = activeSection === sectionId ? "after:w-full text-nature-green" : "after:w-0 hover:after:w-full";
+    const baseClasses = `font-semibold transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:transition-all after:duration-300 ${
+      isScrolled 
+        ? 'text-gray-700 hover:text-nature-green after:bg-nature-green' 
+        : 'text-white hover:text-white/80 after:bg-white'
+    }`;
+    const activeClasses = activeSection === sectionId ? "after:w-full" : "after:w-0 hover:after:w-full";
     return `${baseClasses} ${activeClasses}`;
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-gray-200/50 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white/70 backdrop-blur-md' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="text-lg font-bold text-nature-green cursor-pointer hover:opacity-80 transition-opacity" onClick={handleLogoClick}>Your new home</div>
+          <div className={`text-lg font-bold cursor-pointer hover:opacity-80 transition-all duration-300 ${
+            isScrolled ? 'text-nature-green' : 'text-white'
+          }`} onClick={handleLogoClick}>Your new home</div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-6">
@@ -100,7 +106,9 @@ const Navigation = () => {
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-gray-700 hover:text-nature-green transition-colors p-2">
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className={`transition-colors p-2 ${
+              isScrolled ? 'text-gray-700 hover:text-nature-green' : 'text-white hover:text-white/80'
+            }`}>
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
