@@ -1,9 +1,11 @@
 
-import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight, X, Maximize2 } from 'lucide-react';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number>(0);
+  const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
+  const [thumbnailScrollPosition, setThumbnailScrollPosition] = useState<number>(0);
 
   const images = [
     {
@@ -222,10 +224,12 @@ const Gallery = () => {
       goToPrevious();
     } else if (e.key === 'ArrowRight') {
       goToNext();
+    } else if (e.key === 'Escape') {
+      setIsFullscreen(false);
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
@@ -251,6 +255,27 @@ const Gallery = () => {
     scrollToThumbnail(index);
   };
 
+  const openFullscreen = () => {
+    setIsFullscreen(true);
+  };
+
+  const closeFullscreen = () => {
+    setIsFullscreen(false);
+  };
+
+  const scrollThumbnails = (direction: 'left' | 'right') => {
+    const container = document.getElementById('thumbnail-container');
+    if (container) {
+      const scrollAmount = 200;
+      const newPosition = direction === 'left' 
+        ? Math.max(0, thumbnailScrollPosition - scrollAmount)
+        : thumbnailScrollPosition + scrollAmount;
+      
+      container.scrollTo({ left: newPosition, behavior: 'smooth' });
+      setThumbnailScrollPosition(newPosition);
+    }
+  };
+
   return (
     <section id="gallery" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -263,12 +288,18 @@ const Gallery = () => {
         
         {/* Main Image Display */}
         <div className="mb-8 animate-slide-up">
-          <div className="relative aspect-video max-w-4xl mx-auto bg-gray-100 rounded-lg overflow-hidden">
+          <div className="relative aspect-video max-w-4xl mx-auto bg-gray-100 rounded-lg overflow-hidden group cursor-pointer">
             <img 
               src={images[selectedImage].src} 
               alt={images[selectedImage].alt} 
               className="w-full h-full object-cover" 
+              onClick={openFullscreen}
             />
+            
+            {/* Fullscreen Icon */}
+            <div className="absolute top-4 right-4 bg-black/20 backdrop-blur-sm text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <Maximize2 className="w-5 h-5" />
+            </div>
             
             {/* Navigation Arrows */}
             <button 
@@ -297,11 +328,27 @@ const Gallery = () => {
           </div>
         </div>
 
-        {/* Thumbnail Strip */}
-        <div className="animate-slide-up">
+        {/* Thumbnail Strip with Navigation */}
+        <div className="animate-slide-up relative">
+          {/* Left Arrow */}
+          <button 
+            onClick={() => scrollThumbnails('left')}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 backdrop-blur-sm hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-300"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+
+          {/* Right Arrow */}
+          <button 
+            onClick={() => scrollThumbnails('right')}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 backdrop-blur-sm hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-300"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+
           <div 
             id="thumbnail-container"
-            className="flex overflow-x-auto space-x-3 pb-4 scrollbar-hide"
+            className="flex overflow-x-auto space-x-3 pb-4 mx-8"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {images.map((image, index) => (
@@ -327,11 +374,60 @@ const Gallery = () => {
         </div>
       </div>
 
-      <style jsx>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
+      {/* Fullscreen Modal */}
+      {isFullscreen && (
+        <div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
+          {/* Close Button */}
+          <button 
+            onClick={closeFullscreen}
+            className="absolute top-4 right-4 z-10 bg-black/50 backdrop-blur-sm text-white p-3 rounded-full hover:bg-black/70 transition-all duration-300"
+          >
+            <X className="w-6 h-6" />
+          </button>
+
+          {/* Fullscreen Image */}
+          <div className="relative w-full h-full flex items-center justify-center p-4">
+            <img 
+              src={images[selectedImage].src} 
+              alt={images[selectedImage].alt} 
+              className="max-w-full max-h-full object-contain" 
+            />
+            
+            {/* Navigation Arrows */}
+            <button 
+              onClick={goToPrevious} 
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 backdrop-blur-sm hover:bg-black/70 text-white p-4 rounded-full transition-all duration-300"
+            >
+              <ChevronLeft className="w-8 h-8" />
+            </button>
+            
+            <button 
+              onClick={goToNext} 
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 backdrop-blur-sm hover:bg-black/70 text-white p-4 rounded-full transition-all duration-300"
+            >
+              <ChevronRight className="w-8 h-8" />
+            </button>
+
+            {/* Image Counter */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-full text-lg">
+              {selectedImage + 1} / {images.length}
+            </div>
+
+            {/* Image Title */}
+            <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-center max-w-md">
+              <h3 className="text-lg font-medium">{images[selectedImage].alt}</h3>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          #thumbnail-container::-webkit-scrollbar {
+            display: none;
+          }
+        `
+      }} />
     </section>
   );
 };
