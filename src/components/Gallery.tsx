@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, X, Maximize2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number>(0);
@@ -296,11 +295,6 @@ const Gallery = () => {
               onClick={openFullscreen}
             />
             
-            {/* Fullscreen Icon */}
-            <div className="absolute top-4 right-4 bg-black/20 backdrop-blur-sm text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300">
-              <Maximize2 className="w-5 h-5" />
-            </div>
-            
             {/* Navigation Arrows */}
             <button 
               onClick={goToPrevious} 
@@ -315,16 +309,6 @@ const Gallery = () => {
             >
               <ChevronRight className="w-6 h-6" />
             </button>
-            
-            {/* Image Counter */}
-            <div className="absolute bottom-4 right-4 bg-black/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
-              {selectedImage + 1} / {images.length}
-            </div>
-          </div>
-          
-          {/* Image Title */}
-          <div className="text-center mt-4">
-            <h3 className="text-lg font-medium text-gray-800">{images[selectedImage].alt}</h3>
           </div>
         </div>
 
@@ -407,16 +391,6 @@ const Gallery = () => {
             >
               <ChevronRight className="w-8 h-8" />
             </button>
-
-            {/* Image Counter */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-full text-lg">
-              {selectedImage + 1} / {images.length}
-            </div>
-
-            {/* Image Title */}
-            <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-center max-w-md">
-              <h3 className="text-lg font-medium">{images[selectedImage].alt}</h3>
-            </div>
           </div>
         </div>
       )}
