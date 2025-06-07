@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
@@ -211,11 +212,15 @@ const Gallery = () => {
   ];
 
   const goToPrevious = () => {
-    setSelectedImage(selectedImage === 0 ? images.length - 1 : selectedImage - 1);
+    const newIndex = selectedImage === 0 ? images.length - 1 : selectedImage - 1;
+    setSelectedImage(newIndex);
+    scrollToThumbnail(newIndex);
   };
 
   const goToNext = () => {
-    setSelectedImage(selectedImage === images.length - 1 ? 0 : selectedImage + 1);
+    const newIndex = selectedImage === images.length - 1 ? 0 : selectedImage + 1;
+    setSelectedImage(newIndex);
+    scrollToThumbnail(newIndex);
   };
 
   const handleKeyDown = (e: KeyboardEvent) => {
@@ -275,6 +280,11 @@ const Gallery = () => {
     }
   };
 
+  // Scroll to selected thumbnail when component mounts
+  useEffect(() => {
+    scrollToThumbnail(selectedImage);
+  }, []);
+
   return (
     <section id="gallery" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -287,7 +297,7 @@ const Gallery = () => {
         
         {/* Main Image Display */}
         <div className="mb-8 animate-slide-up">
-          <div className="relative aspect-[4/3] max-w-5xl mx-auto bg-gray-100 rounded-lg overflow-hidden group cursor-pointer">
+          <div className="relative aspect-video max-w-5xl mx-auto bg-gray-100 rounded-lg overflow-hidden group cursor-pointer">
             <img 
               src={images[selectedImage].src} 
               alt={images[selectedImage].alt} 
@@ -313,7 +323,7 @@ const Gallery = () => {
         </div>
 
         {/* Thumbnail Strip with Navigation */}
-        <div className="animate-slide-up relative">
+        <div className="animate-slide-up relative max-w-5xl mx-auto">
           {/* Left Arrow */}
           <button 
             onClick={() => scrollThumbnails('left')}

@@ -60,7 +60,7 @@ const Navigation = () => {
   }, []);
 
   const getLinkClassName = (sectionId: string) => {
-    const baseClasses = `font-semibold transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:transition-all after:duration-300 ${
+    const baseClasses = `text-lg font-semibold transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:transition-all after:duration-300 ${
       isScrolled 
         ? 'text-gray-700 hover:text-nature-green after:bg-nature-green' 
         : 'text-white hover:text-white/80 after:bg-white'
@@ -71,11 +71,11 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/70 backdrop-blur-md' : 'bg-transparent'
+      isScrolled ? 'bg-white/85 backdrop-blur-md' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className={`text-lg font-bold cursor-pointer hover:opacity-80 transition-all duration-300 ${
+          <div className={`text-xl font-bold cursor-pointer hover:opacity-80 transition-all duration-300 ${
             isScrolled ? 'text-nature-green' : 'text-white'
           }`} onClick={handleLogoClick}>Your new home</div>
           
