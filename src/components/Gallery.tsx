@@ -1,8 +1,9 @@
+
 import React, { useState } from 'react';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Gallery = () => {
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [selectedImage, setSelectedImage] = useState<number>(0);
 
   const images = [
     {
@@ -76,54 +77,179 @@ const Gallery = () => {
     {
       src: '/lovable-uploads/842f3a53-9083-473a-8ee6-b208bc995c07.png',
       alt: 'Relaxation zone with terrace'
+    },
+    // Adding placeholder images to reach 50 total
+    {
+      src: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7',
+      alt: 'Woman sitting on bed using laptop'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b',
+      alt: 'Turned on gray laptop computer'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1518770660439-4636190af475',
+      alt: 'Macro photography of black circuit board'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
+      alt: 'Monitor showing Java programming'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d',
+      alt: 'Person using MacBook Pro'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158',
+      alt: 'Woman in white long sleeve shirt using black laptop computer'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e',
+      alt: 'White robot near brown wall'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5',
+      alt: 'Matrix movie still'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1',
+      alt: 'Gray and black laptop computer on surface'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7',
+      alt: 'Colorful software or web code on a computer monitor'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1433086966358-54859d0ed716',
+      alt: 'Gray concrete bridge and waterfalls during daytime'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07',
+      alt: 'Orange flowers'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1482938289607-e9573fc25ebb',
+      alt: 'River between mountains under white clouds'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9',
+      alt: 'Photo of pine trees'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86',
+      alt: 'Low angle photography of trees at daytime'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843',
+      alt: 'Sun light passing through green leafed tree'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e',
+      alt: 'Landscape photography of mountain hit by sun rays'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1470813740244-df37b8c1edcb',
+      alt: 'Blue starry night'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05',
+      alt: 'Foggy mountain summit'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1500375592092-40eb2168fd21',
+      alt: 'Ocean wave at beach'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1458668383970-8ddd3927deed',
+      alt: 'Landscape photo of mountain alps'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1504893524553-b855bce32c67',
+      alt: 'River surrounded by rock formation'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1482881497185-d4a9ddbe4151',
+      alt: 'Photo of desert sand'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1426604966848-d7adac402bff',
+      alt: 'Landmark photography of trees near rocky mountain under blue skies daytime'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1523712999610-f77fbcfc3843',
+      alt: 'Forest heat by sunbeam'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1500673922987-e212871fec22',
+      alt: 'Yellow lights between trees'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb',
+      alt: 'Body of water surrounded by trees'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1501854140801-50d01698950b',
+      alt: 'Birds eye view photograph of green mountains'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1615729947596-a598e5de0ab3',
+      alt: 'Green grass and gray rocky mountain during daytime'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1527576539890-dfa815648363',
+      alt: 'Grayscale photo of low angle view of building'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a',
+      alt: 'Low angle photography of gray building at daytime'
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625',
+      alt: 'White concrete building'
     }
   ];
 
-  const openLightbox = (index: number) => {
-    setSelectedImage(index);
-  };
-
-  const closeLightbox = () => {
-    setSelectedImage(null);
-  };
-
   const goToPrevious = () => {
-    if (selectedImage !== null) {
-      setSelectedImage(selectedImage === 0 ? images.length - 1 : selectedImage - 1);
-    }
+    setSelectedImage(selectedImage === 0 ? images.length - 1 : selectedImage - 1);
   };
 
   const goToNext = () => {
-    if (selectedImage !== null) {
-      setSelectedImage(selectedImage === images.length - 1 ? 0 : selectedImage + 1);
-    }
+    setSelectedImage(selectedImage === images.length - 1 ? 0 : selectedImage + 1);
   };
 
   const handleKeyDown = (e: KeyboardEvent) => {
-    if (selectedImage === null) return;
-
     if (e.key === 'ArrowLeft') {
       goToPrevious();
     } else if (e.key === 'ArrowRight') {
       goToNext();
-    } else if (e.key === 'Escape') {
-      closeLightbox();
     }
   };
 
   React.useEffect(() => {
-    if (selectedImage !== null) {
-      document.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-
+    document.addEventListener('keydown', handleKeyDown);
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
     };
   }, [selectedImage]);
+
+  const scrollToThumbnail = (index: number) => {
+    const thumbnailContainer = document.getElementById('thumbnail-container');
+    const thumbnail = document.getElementById(`thumbnail-${index}`);
+    
+    if (thumbnailContainer && thumbnail) {
+      const containerWidth = thumbnailContainer.offsetWidth;
+      const thumbnailLeft = thumbnail.offsetLeft;
+      const thumbnailWidth = thumbnail.offsetWidth;
+      
+      const scrollLeft = thumbnailLeft - (containerWidth / 2) + (thumbnailWidth / 2);
+      thumbnailContainer.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+    }
+  };
+
+  const selectImage = (index: number) => {
+    setSelectedImage(index);
+    scrollToThumbnail(index);
+  };
 
   return (
     <section id="gallery" className="py-20 bg-white">
@@ -135,69 +261,77 @@ const Gallery = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 animate-slide-up">
-          {images.map((image, index) => (
-            <div 
-              key={index} 
-              className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group hover:scale-105 transition-transform duration-300"
-              onClick={() => openLightbox(index)}
+        {/* Main Image Display */}
+        <div className="mb-8 animate-slide-up">
+          <div className="relative aspect-video max-w-4xl mx-auto bg-gray-100 rounded-lg overflow-hidden">
+            <img 
+              src={images[selectedImage].src} 
+              alt={images[selectedImage].alt} 
+              className="w-full h-full object-cover" 
+            />
+            
+            {/* Navigation Arrows */}
+            <button 
+              onClick={goToPrevious} 
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/20 backdrop-blur-sm hover:bg-black/40 text-white p-3 rounded-full transition-all duration-300"
             >
-              <img 
-                src={image.src} 
-                alt={image.alt} 
-                className="w-full h-full object-cover group-hover:brightness-110 transition-all duration-300" 
-                loading="lazy" 
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
-                <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 11-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zm9 1a1 1 0 010-2h4a1 1 0 011 1v4a1 1 0 01-2 0V6.414l-2.293 2.293a1 1 0 11-1.414-1.414L13.586 5H12zm-9 7a1 1 0 012 0v1.586l2.293-2.293a1 1 0 111.414 1.414L6.414 15H8a1 1 0 010 2H4a1 1 0 01-1-1v-4zm13-1a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 010-2h1.586l-2.293-2.293a1 1 0 111.414-1.414L15 13.586V12a1 1 0 011-1z" clipRule="evenodd" />
-                  </svg>
-                </div>
-              </div>
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            
+            <button 
+              onClick={goToNext} 
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/20 backdrop-blur-sm hover:bg-black/40 text-white p-3 rounded-full transition-all duration-300"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+            
+            {/* Image Counter */}
+            <div className="absolute bottom-4 right-4 bg-black/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
+              {selectedImage + 1} / {images.length}
             </div>
-          ))}
+          </div>
+          
+          {/* Image Title */}
+          <div className="text-center mt-4">
+            <h3 className="text-lg font-medium text-gray-800">{images[selectedImage].alt}</h3>
+          </div>
+        </div>
+
+        {/* Thumbnail Strip */}
+        <div className="animate-slide-up">
+          <div 
+            id="thumbnail-container"
+            className="flex overflow-x-auto space-x-3 pb-4 scrollbar-hide"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {images.map((image, index) => (
+              <div 
+                key={index}
+                id={`thumbnail-${index}`}
+                className={`flex-shrink-0 w-20 h-20 md:w-24 md:h-24 cursor-pointer rounded-lg overflow-hidden transition-all duration-300 ${
+                  selectedImage === index 
+                    ? 'ring-4 ring-nature-green scale-105' 
+                    : 'hover:scale-105 opacity-70 hover:opacity-100'
+                }`}
+                onClick={() => selectImage(index)}
+              >
+                <img 
+                  src={image.src} 
+                  alt={image.alt} 
+                  className="w-full h-full object-cover" 
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Fullscreen Lightbox */}
-      {selectedImage !== null && (
-        <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
-          <button 
-            onClick={closeLightbox} 
-            className="absolute top-6 right-6 z-10 text-white hover:text-gray-300 transition-colors p-2 rounded-full bg-black/20 backdrop-blur-sm"
-          >
-            <X className="w-8 h-8" />
-          </button>
-          
-          <button 
-            onClick={goToPrevious} 
-            className="absolute left-6 top-1/2 transform -translate-y-1/2 z-10 text-white hover:text-gray-300 transition-colors p-2 rounded-full bg-black/20 backdrop-blur-sm"
-          >
-            <ChevronLeft className="w-10 h-10" />
-          </button>
-          
-          <button 
-            onClick={goToNext} 
-            className="absolute right-6 top-1/2 transform -translate-y-1/2 z-10 text-white hover:text-gray-300 transition-colors p-2 rounded-full bg-black/20 backdrop-blur-sm"
-          >
-            <ChevronRight className="w-10 h-10" />
-          </button>
-          
-          <img 
-            src={images[selectedImage].src} 
-            alt={images[selectedImage].alt} 
-            className="max-w-[95vw] max-h-[95vh] object-contain" 
-          />
-          
-          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white text-center">
-            <p className="text-lg font-medium">{images[selectedImage].alt}</p>
-            <p className="text-sm opacity-75 mt-1">
-              {selectedImage + 1} / {images.length}
-            </p>
-          </div>
-        </div>
-      )}
+      <style jsx>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   );
 };
