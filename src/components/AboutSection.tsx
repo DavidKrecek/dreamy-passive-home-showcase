@@ -1,13 +1,13 @@
 import React from 'react';
 import AboutImageSlider from './AboutImageSlider';
 const AboutSection = () => {
-  return <section id="about" className="py-20 bg-white">
+  return <section id="about" className="bg-white py-[40px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* First section - text left, slider right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
           <div className="animate-slide-up">
             <h2 className="text-4xl font-bold text-nature-green mb-6 md:text-4xl">Exceptional Passive House</h2>
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+            <p className="text-lg text-gray-700 mb-6 leading-relaxed py-px">
               We present to you a unique passive house that combines modern architectural design 
               with the most advanced technologies for energy-efficient living. This house is designed 
               to provide maximum comfort with minimal energy consumption.
@@ -34,7 +34,7 @@ const AboutSection = () => {
             <AboutImageSlider />
           </div>
           <div className="animate-slide-up order-1 lg:order-2">
-            <h2 className="text-4xl md:text-5xl font-bold text-nature-green mb-6">Exceptional Passive House</h2>
+            <h2 className="text-4xl font-bold text-nature-green mb-6 md:text-4xl">Exceptional Passive House</h2>
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
               We present to you a unique passive house that combines modern architectural design 
               with the most advanced technologies for energy-efficient living. This house is designed 
